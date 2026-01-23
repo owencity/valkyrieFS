@@ -1,0 +1,30 @@
+# Python / venv
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.dll
+*.exe
+*.log
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+build/
+dist/
+native/build/
+
+# PyInstaller
+*.spec
+
+# App data (local snapshot/index)
+.valkyrie/
+index.dat
+
+
