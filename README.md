@@ -1,8 +1,10 @@
 # ValkyrieFS - 파일 검색 (Everything-like)
 
+![ValkyrieFS 로고](src/ui/assets/valkyriefs-wing.svg)
+
 ValkyrieFS는 **Windows(NTFS)** 환경에서 Everything과 유사한 “이름 기반” 초고속 파일 검색을 목표로 하는 데스크톱 앱입니다.
 
-사내 사용을 우선으로, **빠른 검색/깔끔한 UI/키보드 중심 UX**에 집중합니다.
+개인 사이드 프로젝트로, **빠른 검색/깔끔한 UI/키보드 중심 UX**에 집중합니다.
 
 ## 다운로드 (설치파일)
 
@@ -17,8 +19,10 @@ ValkyrieFS는 **Windows(NTFS)** 환경에서 Everything과 유사한 “이름 �
 ## 설치/실행
 
 1. `ValkyrieFS-Setup.exe` 실행
-2. 설치 과정에서 **1회 UAC(권한 승인)**가 뜰 수 있습니다. (Everything 스타일: 서비스 등록/시작)
-3. 설치 완료 후 **관리자 권한 없이** ValkyrieFS를 실행해서 사용합니다.
+2. 베타 버전이라 Windows에서 “보호됨” 경고가 뜰 수 있습니다.  
+   - **“추가 정보” → “실행”**을 눌러 진행하세요.
+3. 설치 과정에서 **1회 UAC(권한 승인)**가 뜰 수 있습니다. (Everything 스타일: 서비스 등록/시작)
+4. 설치 완료 후 **관리자 권한 없이** ValkyrieFS를 실행해서 사용합니다.
 
 ## 프로그램 설명
 
@@ -47,5 +51,5 @@ ValkyrieFS는 파일 내용이 아니라 **파일/폴더 이름(및 경로)** �
 
 ## 라이선스
 
-개발 팀 2 내부 프로젝트
+개인 사이드 프로젝트
 

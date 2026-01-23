@@ -30,7 +30,7 @@ def main() -> int:
     # 애플리케이션 이름과 버전 설정 (시스템 통합을 위해)
     app.setApplicationName("ValkyrieFS")
     app.setApplicationVersion("1.0.0")
-    app.setOrganizationName("Development Team 2")
+    app.setOrganizationName("ValkyrieFS")
 
     # Windows 작업표시줄 아이콘/그룹핑을 안정적으로 표시하려면 AppUserModelID가 필요합니다.
     # (PyInstaller로 단일 exe로 만들 때도 동일하게 유효)
@@ -45,7 +45,11 @@ def main() -> int:
             pass
 
     # 앱 아이콘(날개 로고) 설정
-    icon_path = resource_path("ui/assets/valkyriefs-wing.svg")
+    # Windows 아이콘은 .ico가 가장 안정적(탐색기/작업표시줄/바로가기)
+    # 없으면 SVG로 폴백(개발/디버그용)
+    ico_path = resource_path("ui/assets/valkyriefs.ico")
+    svg_icon_path = resource_path("ui/assets/valkyriefs-wing.svg")
+    icon_path = ico_path if ico_path.exists() else svg_icon_path
     if icon_path.exists():
         app_icon = QIcon(str(icon_path))
         app.setWindowIcon(app_icon)
@@ -58,7 +62,7 @@ def main() -> int:
 
     # 스플래시(런처) 화면: "배경 없는 날개 마크"로 좌→우 채움 모션을 자연스럽게 만듭니다.
     splash_logo_path = resource_path("ui/assets/valkyriefs-wing-mark.svg")
-    splash = SplashScreen(splash_logo_path if splash_logo_path.exists() else icon_path)
+    splash = SplashScreen(splash_logo_path if splash_logo_path.exists() else svg_icon_path)
     # 로고: 숨쉬는 효과 + 좌→우 색 채움(10초)
     splash.start(duration_ms=min_ms)
     splash.show()

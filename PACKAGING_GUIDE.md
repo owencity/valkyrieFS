@@ -59,6 +59,24 @@ Windows exe/설치 아이콘은 **.ico**가 가장 안정적입니다.
 - 현재 앱 내부 아이콘은 SVG를 사용하지만,
 - PyInstaller `--icon`은 보통 `.ico`를 권장합니다.
 
+권장 절차:
+- `src/ui/assets/valkyriefs.ico` 파일을 준비(로고 SVG → ICO 변환)
+- PyInstaller 빌드 시 `--icon`으로 ICO 지정
+- Inno Setup에서도 `SetupIconFile`로 ICO 지정(설치기 아이콘)
+
+PyInstaller 예시(onedir):
+```powershell
+pyinstaller --noconfirm --clean -w `
+  -n ValkyrieFS `
+  --icon "src\ui\assets\valkyriefs.ico" `
+  --add-data "src\ui\assets;src\ui\assets" `
+  --add-binary "native\*.pyd;native" `
+  --hidden-import PySide6.QtSvg `
+  -p native `
+  -p src `
+  src\main.py
+```
+
 ---
 
 ## 3) 설치파일(.exe installer) 만들기 (선택)
