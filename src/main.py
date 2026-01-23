@@ -12,6 +12,7 @@ from PySide6.QtGui import QIcon
 from PySide6.QtCore import QTimer
 from src.ui.splash_screen import SplashScreen
 from src.ui.main_window import MainWindow
+from src.utils.runtime_paths import resource_path
 
 
 def main() -> int:
@@ -44,7 +45,7 @@ def main() -> int:
             pass
 
     # 앱 아이콘(날개 로고) 설정
-    icon_path = Path(__file__).parent / "ui" / "assets" / "valkyriefs-wing.svg"
+    icon_path = resource_path("ui/assets/valkyriefs-wing.svg")
     if icon_path.exists():
         app_icon = QIcon(str(icon_path))
         app.setWindowIcon(app_icon)
@@ -56,7 +57,7 @@ def main() -> int:
     started_at = time.monotonic()
 
     # 스플래시(런처) 화면: "배경 없는 날개 마크"로 좌→우 채움 모션을 자연스럽게 만듭니다.
-    splash_logo_path = Path(__file__).parent / "ui" / "assets" / "valkyriefs-wing-mark.svg"
+    splash_logo_path = resource_path("ui/assets/valkyriefs-wing-mark.svg")
     splash = SplashScreen(splash_logo_path if splash_logo_path.exists() else icon_path)
     # 로고: 숨쉬는 효과 + 좌→우 색 채움(10초)
     splash.start(duration_ms=min_ms)

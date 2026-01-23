@@ -10,6 +10,9 @@ from pathlib import Path
 from typing import List, Optional, Callable
 from datetime import datetime
 
+# PyInstaller(onefile)에서도 네이티브 모듈을 찾을 수 있도록 경로 헬퍼 사용
+from src.utils.runtime_paths import native_dir
+
 # native 디렉토리를 Python 경로에 추가
 # 현재 파일 위치: src/core/memory_index_manager.py
 # 프로젝트 루트: src/core/../.. = 프로젝트 루트
@@ -17,9 +20,7 @@ from datetime import datetime
 # .parent = src/core/
 # .parent.parent = src/
 # .parent.parent.parent = 프로젝트 루트
-_project_root = Path(__file__).parent.parent.parent
-_native_dir = _project_root / "native"
-_native_dir_abs = _native_dir.resolve()
+_native_dir_abs = native_dir()
 
 if _native_dir_abs.exists():
     native_path = str(_native_dir_abs)

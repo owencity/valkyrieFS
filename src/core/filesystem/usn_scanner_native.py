@@ -13,11 +13,12 @@ from datetime import datetime
 
 from src.models.file_entry import FileEntry
 from src.core.filesystem.scanner_interface import FileSystemScanner
+from src.utils.runtime_paths import native_dir
 
 # native 디렉토리를 Python 경로에 추가
-_native_dir = Path(__file__).parent.parent.parent.parent / "native"
-if _native_dir.exists() and str(_native_dir) not in sys.path:
-    sys.path.insert(0, str(_native_dir))
+_native_dir_abs = native_dir()
+if _native_dir_abs.exists() and str(_native_dir_abs) not in sys.path:
+    sys.path.insert(0, str(_native_dir_abs))
 
 try:
     # 네이티브 모듈 import 시도
