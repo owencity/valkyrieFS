@@ -8,10 +8,11 @@ ValkyrieFS는 **Windows(NTFS)** 환경에서 Everything과 유사한 “이름 �
 
 설치파일은 **GitHub Releases**에서 다운로드합니다.
 
-- **최신 릴리즈(항상 최신으로 이동)**: `https://github.com/owencity/valkyrieFS/releases/latest`
+- **바로 다운로드(클릭 즉시 다운로드)**: `https://github.com/owencity/valkyrieFS/releases/latest/download/ValkyrieFS-Setup.exe`
+- **최신 릴리즈 페이지**: `https://github.com/owencity/valkyrieFS/releases/latest`
 - **릴리즈 목록**: `https://github.com/owencity/valkyrieFS/releases`
 
-릴리즈에서 `ValkyrieFS-Setup.exe`를 받으면 됩니다.
+위 “바로 다운로드” 링크로 `ValkyrieFS-Setup.exe`가 즉시 내려받아집니다.
 
 ## 설치/실행
 
