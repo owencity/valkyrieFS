@@ -8,25 +8,34 @@
 [Setup]
 AppName=ValkyrieFS
 AppVersion=1.0.0
-DefaultDirName={pf}\ValkyrieFS
+; Inno Setup 6+: {pf} 상수는 이름이 변경되어 경고가 납니다.
+; 권장: {autopf} (환경/권한에 따라 적절한 Program Files 경로 자동 선택)
+DefaultDirName={autopf}\ValkyrieFS
 DefaultGroupName=ValkyrieFS
 OutputBaseFilename=ValkyrieFS-Setup
 Compression=lzma
 SolidCompression=yes
 PrivilegesRequired=admin
+; 설치기(Setup.exe) 아이콘: 반드시 .ico 권장
+; - 파일이 없으면 컴파일이 실패합니다(의도된 동작: 아이콘 누락 방지)
+SetupIconFile=..\src\ui\assets\valkyriefs.ico
+; 프로그램/기능(앱 제거) 목록의 언인스톨 항목 아이콘
+UninstallDisplayIcon={app}\ValkyrieFS.exe
 
 [Files]
 ; PyInstaller onedir 산출물(예: dist\ValkyrieFS\*)
 ; Source 경로는 빌드 결과에 맞게 수정하세요.
 Source: "..\dist\ValkyrieFS\*"; DestDir: "{app}"; Flags: recursesubdirs ignoreversion
+; 앱 런타임/바로가기 아이콘(권장): dist에 포함되지 않더라도 설치본에 항상 포함
+Source: "..\src\ui\assets\valkyriefs.ico"; DestDir: "{app}\ui\assets"; Flags: ignoreversion
 
 ; 서비스 산출물(권장: dotnet publish 결과물을 통째로 포함)
 ; 예: service\ValkyrieFS.Service\bin\Release\net10.0-windows\win-x64\publish\*
 Source: "..\service\ValkyrieFS.Service\bin\Release\net10.0-windows\win-x64\publish\*"; DestDir: "{app}\service"; Flags: recursesubdirs ignoreversion
 
 [Icons]
-Name: "{group}\ValkyrieFS"; Filename: "{app}\ValkyrieFS.exe"
-Name: "{commondesktop}\ValkyrieFS"; Filename: "{app}\ValkyrieFS.exe"; Tasks: desktopicon
+Name: "{group}\ValkyrieFS"; Filename: "{app}\ValkyrieFS.exe"; IconFilename: "{app}\ui\assets\valkyriefs.ico"
+Name: "{commondesktop}\ValkyrieFS"; Filename: "{app}\ValkyrieFS.exe"; IconFilename: "{app}\ui\assets\valkyriefs.ico"; Tasks: desktopicon
 
 [Tasks]
 Name: "desktopicon"; Description: "바탕화면 아이콘 생성"; Flags: unchecked

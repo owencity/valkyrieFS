@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ValkyrieFS.Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c78e9ef2d0b98cbd7a0d3cbfe9a21701ee2eaf6b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c062677cb01408f6ff2ed900230fd51de7356460")]
 [assembly: System.Reflection.AssemblyProductAttribute("ValkyrieFS.Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ValkyrieFS.Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

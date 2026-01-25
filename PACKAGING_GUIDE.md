@@ -64,6 +64,15 @@ Windows exe/설치 아이콘은 **.ico**가 가장 안정적입니다.
 - PyInstaller 빌드 시 `--icon`으로 ICO 지정
 - Inno Setup에서도 `SetupIconFile`로 ICO 지정(설치기 아이콘)
 
+#### “다시 만들어야 하나요?” 기준(아이콘)
+
+- **설치파일(Setup.exe) 아이콘만 바꾸고 싶다**
+  - Inno Setup의 `SetupIconFile`이 설치기 exe에 아이콘을 **내장**하므로, **설치기(인스톨러)를 다시 빌드해야 합니다.**
+- **설치 후 프로그램의 작업표시줄/탐색기 아이콘을 바꾸고 싶다**
+  - 가장 확실한 방법은 PyInstaller 빌드 시 `--icon ...ico`로 **앱 exe 아이콘을 내장**하는 것입니다.
+  - 그리고 사용자가 설치해서 쓰는 흐름이라면, 새 exe가 포함되도록 **설치기도 다시 빌드/배포**하는 게 안전합니다.
+  - 참고: 앱은 런타임에도 `ui/assets/valkyriefs.ico`를 창 아이콘으로 사용하도록 되어 있지만, **고정(Pin) 아이콘/탐색기 표시**는 exe 내장 아이콘 영향이 큽니다.
+
 PyInstaller 예시(onedir):
 ```powershell
 pyinstaller --noconfirm --clean -w `
